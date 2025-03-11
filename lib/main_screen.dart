@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'jadwal_todo_screen.dart';
 import 'medsos_screen.dart';
+import 'pesan_group_screen.dart';
 
 void main() {
   runApp(MainScreen());
@@ -22,9 +23,7 @@ class MainScreenState extends State<MainScreen> {
         child: Text("TODO: Elearning Screen",
             style: TextStyle(fontSize: 24))), // Placeholder untuk notifikasi
     JadwalTodoScreen(), // Pindah ke Jadwal & To-Do Screen
-    Center(
-        child: Text("TODO: Pesan & Group Screen",
-            style: TextStyle(fontSize: 24))), // Placeholder untuk notifikasi
+    ChatScreen(),
     Center(
         child: Text("TODO: Notifikasi Screen",
             style: TextStyle(fontSize: 24))), // Placeholder untuk notifikasi

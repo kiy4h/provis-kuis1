@@ -1,4 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:kuis/akademik_screen.dart';
+import 'package:kuis/detail_akademik.dart';
+import 'package:kuis/elearning_screen.dart';
+import 'package:kuis/keuangan_screen.dart';
+import 'package:kuis/tambah_keuangan.dart';
+import 'package:kuis/mental_health_screen.dart';
+import 'package:kuis/notifikasi_screen.dart';
 import 'package:kuis/pesan_group_screen.dart';
 import 'package:kuis/chat_screen.dart';
 import 'main_screen.dart';
@@ -20,18 +27,16 @@ class MyApp extends StatelessWidget {
         '/': (context) => QuizScreen(),
         '/main': (context) => MainScreen(),
         '/medsos': (context) => MedsosScreen(),
-        '/mental_health': (context) => QuizScreen(),
-        '/akademik': (context) =>
-            QuizScreen(), // TODO: Ganti dengan AkademikScreen
-        '/keuangan': (context) =>
-            QuizScreen(), // TODO: Ganti dengan KeuanganScreen
-        '/elearning': (context) =>
-            QuizScreen(), // TODO: Ganti dengan ElearningScreen
+        '/mental_health': (context) => MentalHealthScreen(),
+        '/akademik': (context) => AkademikScreen(),
+        '/detail_akademik': (context) => DetailAkademik(),
+        '/keuangan': (context) => KeuanganScreen(), 
+        '/pengeluaran': (context) => TambahPengeluaran(), 
+        '/elearning': (context) => ElearningDisplay(),
         '/jadwal_todo': (context) => JadwalTodoScreen(),
         '/pesan_group': (context) => ChatScreen(),
         '/chat': (context) => Chatting(),
-        '/notifikasi': (context) =>
-            QuizScreen(), // TODO: Ganti dengan NotifikasiScreen
+        '/notifikasi': (context) => NotifikasiScreen(),
       },
     );
   }
@@ -44,7 +49,9 @@ class QuizScreen extends StatelessWidget {
     "Medsos screen": "/medsos",
     "Mental health screen": "/mental_health",
     "Akademik screen": "/akademik",
+    "Akademik: bagian Detail Akademik": "/detail_akademik",
     "Keuangan screen": "/keuangan",
+    "Keuangan: bagian Tambah Pengeluaran": "/pengeluaran",
     "E-learning screen": "/elearning",
     "Jadwal & todo screen": "/jadwal_todo",
     "Pesan & group screen": "/pesan_group",

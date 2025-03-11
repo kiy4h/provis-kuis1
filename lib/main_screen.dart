@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'jadwal_todo_screen.dart';
+import 'home_screen.dart';
 import 'medsos_screen.dart';
 import 'pesan_group_screen.dart';
 import 'elearning_screen.dart';
@@ -20,6 +21,7 @@ class MainScreenState extends State<MainScreen> {
   int _selectedIndex = 0;
 
   final List<Widget> _screens = [
+    HomeScreen(), // Pindah ke Home Screen
     MedsosScreen(), // Pindah ke Medsos Screen
     ElearningScreen(), // Pindah ke E-Learning Screen
     JadwalTodoScreen(), // Pindah ke Jadwal & To-Do Screen
@@ -85,6 +87,7 @@ class MainScreenState extends State<MainScreen> {
         currentIndex: _selectedIndex,
         onTap: _onNavItemTapped,
         items: const [
+          BottomNavigationBarItem(icon: Icon(Icons.home), label: "Home"),
           BottomNavigationBarItem(
               icon: Icon(Icons.emoji_emotions), label: "Medsos"),
           BottomNavigationBarItem(

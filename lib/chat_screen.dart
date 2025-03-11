@@ -24,11 +24,11 @@ class MyApp extends StatelessWidget {
 
 class Chatting extends StatelessWidget {
   final List<Message> messages = [
-    Message("Julian Dwi S", "Jangan lupa belajar gaisss!", "9.38", false, "https://randomuser.me/api/portraits/women/12.jpg"),
-    Message("Arya Jagadditha", "Aman jul, tenang aja 🫡", "9:40", false, "https://randomuser.me/api/portraits/women/12.jpg"),
-    Message("Me", "Install flutter juga jangan lupa gaiss", "9.42", true, ""),
-    Message("Meisya Amalia", "Okay!", "10:28", false, "https://randomuser.me/api/portraits/women/37.jpg"),
-    Message("Rexy Putra", "Semangat semangat", "9.42", false, "https://randomuser.me/api/portraits/women/37.jpg"),
+    Message("Julian Dwi S", "Jangan lupa belajar gaisss!", "9.38", false, 0xFF9C27B0),
+    Message("Arya Jagadditha", "Aman jul, tenang aja 🫡", "9:40", false, 0xFF2196F3),
+    Message("Me", "Install flutter juga jangan lupa gaiss", "9.42", true, 0xFF6C63FF),
+    Message("Meisya Amalia", "Okay!", "10:28", false, 0xFFE91E63),
+    Message("Rexy Putra", "Semangat semangat", "9.42", false, 0xFF4CAF50),
   ];
 
   @override
@@ -37,9 +37,18 @@ class Chatting extends StatelessWidget {
       appBar: AppBar(
         title: Row(
           children: [
-            CircleAvatar(
-              radius: 16,
-              backgroundImage: NetworkImage('https://randomuser.me/api/portraits/men/31.jpg'),
+            Container(
+              width: 32,
+              height: 32,
+              decoration: BoxDecoration(
+                color: Color(0xFF4CAF50).withOpacity(0.2),
+                shape: BoxShape.circle,
+              ),
+              child: Icon(
+                Icons.group,
+                color: Color(0xFF4CAF50),
+                size: 16,
+              ),
             ),
             SizedBox(width: 10),
             Column(
@@ -74,8 +83,9 @@ class Chatting extends StatelessWidget {
       ),
       body: Container(
         decoration: BoxDecoration(
+          color: Colors.grey[100],
           image: DecorationImage(
-            image: NetworkImage('https://i.pinimg.com/originals/8f/ba/cb/8fbacbd464e996966eb9d4a6b7a9c21e.jpg'),
+            image: AssetImage('assets/chat_bg.jpg'),
             fit: BoxFit.cover,
             colorFilter: ColorFilter.mode(Colors.white.withOpacity(0.8), BlendMode.lighten),
           ),
@@ -127,9 +137,9 @@ class Message {
   final String text;
   final String time;
   final bool isMe;
-  final String avatar;
+  final int avatarColor;
 
-  Message(this.sender, this.text, this.time, this.isMe, this.avatar);
+  Message(this.sender, this.text, this.time, this.isMe, this.avatarColor);
 }
 
 class ChatBubble extends StatelessWidget {
@@ -152,9 +162,9 @@ class ChatBubble extends StatelessWidget {
         mainAxisAlignment: message.isMe ? MainAxisAlignment.end : MainAxisAlignment.start,
         children: [
           if (!message.isMe && showAvatar) ...[
-            CircleAvatar(
-              radius: 16,
-              backgroundImage: NetworkImage(message.avatar),
+            CustomAvatar(
+              initials: message.sender.split(' ').map((name) => name[0]).join(''),
+              color: Color(message.avatarColor),
             ),
             SizedBox(width: 8),
           ],
@@ -230,6 +240,50 @@ class ChatBubble extends StatelessWidget {
             ),
           ),
         ],
+      ),
+    );
+  }
+}
+
+class CustomAvatar extends StatelessWidget {
+  final String initials;
+  final Color color;
+  final double size;
+
+  const CustomAvatar({
+    Key? key,
+    required this.initials,
+    required this.color,
+    this.size = 32,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    // Extract only first 2 characters for initials to avoid overflow
+    final displayInitials = initials.length > 2 ? initials.substring(0, 2) : initials;
+    
+    return Container(
+      width: size,
+      height: size,
+      decoration: BoxDecoration(
+        color: color.withOpacity(0.2),
+        shape: BoxShape.circle,
+      ),
+      child: Center(
+        child: initials.isEmpty
+            ? Icon(
+                Icons.person,
+                color: color,
+                size: size * 0.5,
+              )
+            : Text(
+                displayInitials.toUpperCase(),
+                style: TextStyle(
+                  color: color,
+                  fontWeight: FontWeight.bold,
+                  fontSize: size * 0.4,
+                ),
+              ),
       ),
     );
   }

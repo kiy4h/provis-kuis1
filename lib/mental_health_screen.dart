@@ -8,12 +8,12 @@ void main() {
       fontFamily: 'Poppins',
       scaffoldBackgroundColor: Colors.grey[100],
     ),
-    home: const MentalHealthDisplay(),
+    home: const MentalHealthScreen(),
   ));
 }
 
-class MentalHealthDisplay extends StatelessWidget {
-  const MentalHealthDisplay({Key? key}) : super(key: key);
+class MentalHealthScreen extends StatelessWidget {
+  const MentalHealthScreen({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -102,7 +102,6 @@ class MentalHealthDisplay extends StatelessWidget {
           physics: const BouncingScrollPhysics(),
           padding: const EdgeInsets.all(16),
           children: [
-
             // Mood Tracker Section
             Container(
               padding: const EdgeInsets.all(16),

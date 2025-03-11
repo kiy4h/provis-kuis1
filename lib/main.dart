@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:kuis/pesan_group_screen.dart';
+import 'package:kuis/chat_screen.dart';
 import 'main_screen.dart';
+// import 'pesan_group_screen.dart';
 
 void main() {
   runApp(const MyApp());
@@ -14,7 +17,9 @@ class MyApp extends StatelessWidget {
       title: 'Test Route',
       routes: {
         '/': (context) => QuizScreen(),
-        '/main': (context) => HomeScreen()
+        '/main': (context) => HomeScreen(),
+        '/pesan_group': (context) => ChatScreen(),
+        '/chat': (context) => Chatting()
       },
     );
   }
@@ -30,6 +35,7 @@ class QuizScreen extends StatelessWidget {
     "Medsos screen": "/medsos",
     "Jadwal & todo screen": "/jadwal_todo",
     "Pesan & group screen": "/pesan_group",
+    "Pesan & group: bagian Chat": "/chat",
     "Notifikasi screen": "/notifikasi",
   };
 

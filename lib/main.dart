@@ -32,6 +32,7 @@ class QuizScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      // ini body
       // backgroundColor: Colors.purple.shade50, // Latar belakang soft ungu
       body: Center(
         child: Column(

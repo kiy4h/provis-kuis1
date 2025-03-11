@@ -18,20 +18,32 @@ class MyApp extends StatelessWidget {
         '/': (context) => QuizScreen(),
         '/main': (context) => MainScreen(),
         '/medsos': (context) => MedsosScreen(),
+        '/mental_health': (context) => QuizScreen(),
+        '/akademik': (context) =>
+            QuizScreen(), // TODO: Ganti dengan AkademikScreen
+        '/keuangan': (context) =>
+            QuizScreen(), // TODO: Ganti dengan KeuanganScreen
+        '/elearning': (context) =>
+            QuizScreen(), // TODO: Ganti dengan ElearningScreen
         '/jadwal_todo': (context) => JadwalTodoScreen(),
+        '/pesan_group': (context) =>
+            QuizScreen(), // TODO: Ganti dengan PesanGroupScreen
+        '/notifikasi': (context) =>
+            QuizScreen(), // TODO: Ganti dengan NotifikasiScreen
       },
     );
   }
 }
 
 class QuizScreen extends StatelessWidget {
+  QuizScreen({super.key});
   final Map<String, String> quizOptions = {
     "Main screen": "/main",
+    "Medsos screen": "/medsos",
     "Mental health screen": "/mental_health",
     "Akademik screen": "/akademik",
     "Keuangan screen": "/keuangan",
     "E-learning screen": "/elearning",
-    "Medsos screen": "/medsos",
     "Jadwal & todo screen": "/jadwal_todo",
     "Pesan & group screen": "/pesan_group",
     "Notifikasi screen": "/notifikasi",

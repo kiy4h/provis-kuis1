@@ -25,7 +25,7 @@ class MedsosScreenState extends State<MedsosScreen> {
     return Scaffold(
       body: Column(
         children: [
-          // Carousel Slider untuk Beasiswa
+          // Carousel Slider untuk Beasiswa dll
           Padding(
             padding: const EdgeInsets.all(10),
             child: CarouselSlider(
@@ -120,9 +120,15 @@ class MedsosScreenState extends State<MedsosScreen> {
               shrinkWrap: true,
               crossAxisCount: 3,
               children: [
-                _buildMenuItem(Icons.favorite, "Mental Health"),
-                _buildMenuItem(Icons.folder, "Akademik"),
-                _buildMenuItem(Icons.account_balance_wallet, "Keuangan"),
+                _buildMenuItem(Icons.favorite, "Mental Health", () {
+                  Navigator.of(context).pushNamed("/mental_health");
+                }),
+                _buildMenuItem(Icons.folder, "Akademik", () {
+                  Navigator.of(context).pushNamed("/akademik");
+                }),
+                _buildMenuItem(Icons.account_balance_wallet, "Keuangan", () {
+                  Navigator.of(context).pushNamed("/keuangan");
+                }),
               ],
             ),
           ),
@@ -131,18 +137,35 @@ class MedsosScreenState extends State<MedsosScreen> {
     );
   }
 
-  Widget _buildMenuItem(IconData icon, String label) {
+  Widget _buildMenuItem(IconData icon, String label, VoidCallback onTap) {
     return Column(
       children: [
-        Container(
-          decoration: BoxDecoration(
-            color: Colors.purple[50],
-            shape: BoxShape.circle,
+        // Container for the icon with rounded square background
+        InkWell(
+          onTap: onTap, // Handle the tap event
+          borderRadius: BorderRadius.circular(12),
+          child: Container(
+            decoration: BoxDecoration(
+              color: Colors.purple[50], // Background color
+              borderRadius: BorderRadius.circular(12), // Rounded corners
+            ),
+            padding: const EdgeInsets.all(20),
+            child: Icon(
+              icon,
+              size: 40, // Increased icon size
+              color: Colors.purple, // Icon color
+            ),
           ),
-          padding: const EdgeInsets.all(10),
-          child: Icon(icon, color: Colors.purple),
         ),
-        Text(label, style: const TextStyle(fontSize: 12)),
+        const SizedBox(height: 8), // Spacing between icon and label
+        // Label text
+        Text(
+          label,
+          style: const TextStyle(
+            fontSize: 14, // Increased font size
+            fontWeight: FontWeight.bold, // Optional: Make the text bold
+          ),
+        ),
       ],
     );
   }

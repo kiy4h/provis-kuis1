@@ -45,6 +45,7 @@ class MainScreenState extends State<MainScreen> {
       ),
       appBar: AppBar(
         backgroundColor: Colors.purple[50],
+        toolbarHeight: 80,
         elevation: 0,
         title: TextField(
           decoration: InputDecoration(
@@ -60,8 +61,10 @@ class MainScreenState extends State<MainScreen> {
         ),
         actions: [
           IconButton(
-            icon: const Icon(Icons.account_circle, size: 30),
-            onPressed: () {},
+            icon: const Icon(Icons.account_circle, size: 60),
+            onPressed: () {
+              // TODO: add action to profile page
+            },
           ),
         ],
       ),
@@ -77,13 +80,18 @@ class MainScreenState extends State<MainScreen> {
 
       // Bottom Navigation Bar
       bottomNavigationBar: BottomNavigationBar(
+        // Show labels at all times
+        showSelectedLabels: true,
+        showUnselectedLabels: true,
         selectedItemColor: Colors.purple,
         unselectedItemColor: Colors.grey,
         currentIndex: _selectedIndex,
         onTap: _onNavItemTapped,
         items: const [
-          BottomNavigationBarItem(icon: Icon(Icons.message), label: "Medsos"),
-          BottomNavigationBarItem(icon: Icon(Icons.school), label: "Elearning"),
+          BottomNavigationBarItem(
+              icon: Icon(Icons.emoji_emotions), label: "Medsos"),
+          BottomNavigationBarItem(
+              icon: Icon(Icons.school), label: "E-Learning"),
           BottomNavigationBarItem(
               icon: Icon(Icons.calendar_today), label: "Jadwal & Todo"),
           BottomNavigationBarItem(

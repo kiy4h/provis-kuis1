@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'jadwal_todo_screen.dart';
 import 'medsos_screen.dart';
 import 'pesan_group_screen.dart';
+import 'elearning_screen.dart';
+import 'notifikasi_screen.dart';
 
 void main() {
   runApp(MainScreen());
@@ -19,14 +21,10 @@ class MainScreenState extends State<MainScreen> {
 
   final List<Widget> _screens = [
     MedsosScreen(), // Pindah ke Medsos Screen
-    Center(
-        child: Text("TODO: Elearning Screen",
-            style: TextStyle(fontSize: 24))), // Placeholder untuk notifikasi
+    ElearningScreen(), // Pindah ke E-Learning Screen
     JadwalTodoScreen(), // Pindah ke Jadwal & To-Do Screen
     ChatScreen(),
-    Center(
-        child: Text("TODO: Notifikasi Screen",
-            style: TextStyle(fontSize: 24))), // Placeholder untuk notifikasi
+    NotifikasiScreen()
   ];
 
   void _onNavItemTapped(int index) {

@@ -25,9 +25,12 @@ class MyApp extends StatelessWidget {
 
 class Chatting extends StatelessWidget {
   final List<Message> messages = [
-    Message("Julian Dwi S", "Jangan lupa belajar gaisss!", "9.38", false, 0xFFFF9800),
-    Message("Arya Jagadditha", "Aman jul, tenang aja 🫡", "9:40", false, 0xFFE91E63),
-    Message("Me", "Install flutter juga jangan lupa gaiss", "9.42", true, 0xFF4A148C),
+    Message("Julian Dwi S", "Jangan lupa belajar gaisss!", "9.38", false,
+        0xFFFF9800),
+    Message("Arya Jagadditha", "Aman jul, tenang aja 🫡", "9:40", false,
+        0xFFE91E63),
+    Message("Me", "Install flutter juga jangan lupa gaiss", "9.42", true,
+        0xFF4A148C),
     Message("Meisya Amalia", "Okay!", "10:28", false, 0xFF009688),
     Message("Rexy Putra", "Semangat semangat", "9.42", false, 0xFF3F51B5),
   ];
@@ -60,7 +63,7 @@ class Chatting extends StatelessWidget {
                 Text(
                   "Grup Tubes Provis 🔥",
                   style: TextStyle(
-                    fontSize: 16, 
+                    fontSize: 16,
                     fontWeight: FontWeight.bold,
                     color: Color(0xFFEDE7F6),
                   ),
@@ -68,7 +71,7 @@ class Chatting extends StatelessWidget {
                 Text(
                   "5 participants",
                   style: TextStyle(
-                    fontSize: 12, 
+                    fontSize: 12,
                     fontWeight: FontWeight.w400,
                     color: Color(0xFFEDE7F6).withOpacity(0.8),
                   ),
@@ -96,9 +99,10 @@ class Chatting extends StatelessWidget {
         decoration: BoxDecoration(
           color: Color(0xFFF8F9FA), // Light background color
           image: DecorationImage(
-            image: AssetImage('assets/chat_bg.jpg'),
+            image: AssetImage('images/cat.jpg'),
             fit: BoxFit.cover,
-            colorFilter: ColorFilter.mode(Colors.white.withOpacity(0.8), BlendMode.lighten),
+            colorFilter: ColorFilter.mode(
+                Colors.white.withAlpha(150), BlendMode.lighten),
           ),
         ),
         child: Column(
@@ -108,7 +112,7 @@ class Chatting extends StatelessWidget {
               margin: EdgeInsets.symmetric(vertical: 20),
               padding: EdgeInsets.symmetric(horizontal: 16, vertical: 8),
               decoration: BoxDecoration(
-                color: Colors.white.withOpacity(0.8),
+                color: Colors.white.withAlpha(150),
                 borderRadius: BorderRadius.circular(20),
               ),
               child: Text(
@@ -119,13 +123,13 @@ class Chatting extends StatelessWidget {
                 ),
               ),
             ),
-            
+
             Expanded(
               child: ListView.builder(
                 padding: EdgeInsets.symmetric(horizontal: 10),
                 itemCount: messages.length,
                 itemBuilder: (context, index) {
-                  final isFirstMessageFromUser = index == 0 || 
+                  final isFirstMessageFromUser = index == 0 ||
                       messages[index].sender != messages[index - 1].sender;
                   return ChatBubble(
                     message: messages[index],
@@ -159,7 +163,7 @@ class ChatBubble extends StatelessWidget {
   final bool showName;
 
   ChatBubble({
-    required this.message, 
+    required this.message,
     this.showAvatar = true,
     this.showName = true,
   });
@@ -170,27 +174,27 @@ class ChatBubble extends StatelessWidget {
       padding: EdgeInsets.only(bottom: 8),
       child: Row(
         crossAxisAlignment: CrossAxisAlignment.end,
-        mainAxisAlignment: message.isMe ? MainAxisAlignment.end : MainAxisAlignment.start,
+        mainAxisAlignment:
+            message.isMe ? MainAxisAlignment.end : MainAxisAlignment.start,
         children: [
           if (!message.isMe && showAvatar) ...[
             CustomAvatar(
-              initials: message.sender.split(' ').map((name) => name[0]).join(''),
+              initials:
+                  message.sender.split(' ').map((name) => name[0]).join(''),
               color: Color(message.avatarColor),
             ),
             SizedBox(width: 8),
           ],
-          if (!message.isMe && !showAvatar)
-            SizedBox(width: 40),
-          
+          if (!message.isMe && !showAvatar) SizedBox(width: 40),
           Container(
             constraints: BoxConstraints(
               maxWidth: MediaQuery.of(context).size.width * 0.7,
             ),
             padding: EdgeInsets.symmetric(horizontal: 14, vertical: 10),
             decoration: BoxDecoration(
-              color: message.isMe 
-                ? Color(0xFF4A148C) // Deep purple for my messages
-                : Colors.white,
+              color: message.isMe
+                  ? Color(0xFF4A148C) // Deep purple for my messages
+                  : Colors.white,
               borderRadius: BorderRadius.only(
                 topLeft: Radius.circular(18),
                 topRight: Radius.circular(18),
@@ -234,7 +238,9 @@ class ChatBubble extends StatelessWidget {
                       message.time,
                       style: TextStyle(
                         fontSize: 11,
-                        color: message.isMe ? Color(0xFFEDE7F6).withOpacity(0.7) : Colors.black45,
+                        color: message.isMe
+                            ? Color(0xFFEDE7F6).withOpacity(0.7)
+                            : Colors.black45,
                       ),
                     ),
                     if (message.isMe) ...[
@@ -271,8 +277,9 @@ class CustomAvatar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     // Extract only first 2 characters for initials to avoid overflow
-    final displayInitials = initials.length > 2 ? initials.substring(0, 2) : initials;
-    
+    final displayInitials =
+        initials.length > 2 ? initials.substring(0, 2) : initials;
+
     return Container(
       width: size,
       height: size,

@@ -10,9 +10,9 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
-        primaryColor: Color(0xFF6C63FF),
+        primaryColor: Color(0xFF4A148C),  // Deep purple dari AkademikScreen
         scaffoldBackgroundColor: Color(0xFFF8F9FA),
-        fontFamily: 'Roboto',
+        fontFamily: 'Poppins',
       ),
       home: ChatScreen(),
     );
@@ -21,12 +21,12 @@ class MyApp extends StatelessWidget {
 
 class ChatScreen extends StatelessWidget {
   final List<ChatItem> chatItems = [
-    ChatItem("Saved Messages", "Photo", "9:41", Icons.bookmark, false, Colors.blue, 0),
-    ChatItem("Yudi Wibisono", "Baik Bapak, Terimakasih 🙏🏻🙏🏻🙏🏻", "9:40", Icons.person, false, Colors.purple, 0),
-    ChatItem("Grup Tubes Provis 🔥", "Julian Dwi S: Jangan lupa belajar gaisss!", "9:38", Icons.group, true, Colors.orange, 3),
-    ChatItem("Zakiyah Hasanah", "Udah install flutter kan???", "9:32", Icons.person, true, Colors.green, 2),
-    ChatItem("Meisya Amalia", "Besok jangan lupa masuk mei ada quiz", "9:25", Icons.person, false, Colors.indigo, 0),
-    ChatItem("Provis IK'23", "Yudi Wibisono: Besok kita quiz UI flutter, jangan lupa bawa laptop.", "9:20", Icons.group, true, Colors.pink, 6),
+    ChatItem("Saved Messages", "Photo", "9:41", Icons.bookmark, false, Color(0xFFFF9800), 0),
+    ChatItem("Yudi Wibisono", "Baik Bapak, Terimakasih 🙏🏻🙏🏻🙏🏻", "9:40", Icons.person, false, Color(0xFFE91E63), 0),
+    ChatItem("Grup Tubes Provis 🔥", "Julian Dwi S: Jangan lupa belajar gaisss!", "9:38", Icons.group, true, Color(0xFF009688), 3),
+    ChatItem("Zakiyah Hasanah", "Udah install flutter kan???", "9:32", Icons.person, true, Color(0xFF3F51B5), 2),
+    ChatItem("Meisya Amalia", "Besok jangan lupa masuk mei ada quiz", "9:25", Icons.person, false, Color(0xFFB39DDB), 0),
+    ChatItem("Provis IK'23", "Yudi Wibisono: Besok kita quiz UI flutter, jangan lupa bawa laptop.", "9:20", Icons.group, true, Color(0xFFCDDC39), 6),
   ];
 
   @override
@@ -35,17 +35,24 @@ class ChatScreen extends StatelessWidget {
       backgroundColor: Color(0xFFF8F9FA),
       appBar: AppBar(
         elevation: 0,
-        backgroundColor: Color(0xFF6C63FF),
+        backgroundColor: Color(0xFF4A148C),  // Deep purple
         title: Text(
           "UPI Chats",
           style: TextStyle(
+            color: Color(0xFFEDE7F6),
             fontSize: 20,
             fontWeight: FontWeight.bold,
           ),
         ),
         actions: [
-          IconButton(icon: Icon(Icons.search), onPressed: () {}),
-          IconButton(icon: Icon(Icons.more_vert), onPressed: () {}),
+          IconButton(
+            icon: Icon(Icons.search, color: Color(0xFFEDE7F6)),  
+            onPressed: () {},
+          ),
+          IconButton(
+            icon: Icon(Icons.more_vert, color: Color(0xFFEDE7F6)),  
+            onPressed: () {},
+          ),
         ],
         bottom: PreferredSize(
           preferredSize: Size.fromHeight(1),
@@ -69,8 +76,11 @@ class ChatScreen extends StatelessWidget {
         },
       ),
       floatingActionButton: FloatingActionButton(
-        backgroundColor: Color(0xFF6C63FF),
-        child: Icon(Icons.chat_outlined),
+        backgroundColor: Color(0xFF4A148C),  // Deep purple
+        child: Icon(
+          Icons.chat_outlined,
+          color: Color(0xFFEDE7F6),  // Ubah warna ikon di sini
+        ),
         onPressed: () {},
       ),
     );
@@ -131,7 +141,7 @@ class ChatTile extends StatelessWidget {
                             width: 12,
                             height: 12,
                             decoration: BoxDecoration(
-                              color: Color(0xFF6C63FF),
+                              color: Color(0xFF4A148C),  // Deep purple
                               shape: BoxShape.circle,
                             ),
                           ),
@@ -160,7 +170,7 @@ class ChatTile extends StatelessWidget {
                           chatItem.time,
                           style: TextStyle(
                             fontSize: 12,
-                            color: chatItem.unread ? Color(0xFF6C63FF) : Colors.grey[500],
+                            color: chatItem.unread ? Color(0xFF4A148C) : Colors.grey[500],  // Deep purple untuk unread
                             fontWeight: chatItem.unread ? FontWeight.bold : FontWeight.normal,
                           ),
                         ),
@@ -185,7 +195,7 @@ class ChatTile extends StatelessWidget {
                           Container(
                             padding: EdgeInsets.symmetric(horizontal: 8, vertical: 2),
                             decoration: BoxDecoration(
-                              color: Color(0xFF6C63FF),
+                              color: Color(0xFF4A148C),  // Deep purple
                               borderRadius: BorderRadius.circular(10),
                             ),
                             child: Text(

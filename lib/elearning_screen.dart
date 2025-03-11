@@ -49,7 +49,7 @@ class ElearningDisplay extends StatelessWidget {
               accountName: Text("Zaning", style: TextStyle(fontWeight: FontWeight.bold)),
               accountEmail: Text("Level 3 • 1200 XP"),
               currentAccountPicture: CircleAvatar(
-                backgroundImage: AssetImage('assets/student.jpg'),
+                backgroundImage: AssetImage('assets/images/student.jpg'),
               ),
             ),
             ListTile(

@@ -10,11 +10,12 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
-        primaryColor: Color(0xFF6C63FF),
-        scaffoldBackgroundColor: Color(0xFFF5F5F5),
+        primaryColor: Color(0xFF4A148C), // Deep purple from ChatScreen
+        scaffoldBackgroundColor: Color(0xFFF8F9FA),
+        fontFamily: 'Poppins',
         appBarTheme: AppBarTheme(
           elevation: 0,
-          color: Color(0xFF6C63FF),
+          color: Color(0xFF4A148C),
         ),
       ),
       home: Chatting(),
@@ -24,29 +25,31 @@ class MyApp extends StatelessWidget {
 
 class Chatting extends StatelessWidget {
   final List<Message> messages = [
-    Message("Julian Dwi S", "Jangan lupa belajar gaisss!", "9.38", false, 0xFF9C27B0),
-    Message("Arya Jagadditha", "Aman jul, tenang aja 🫡", "9:40", false, 0xFF2196F3),
-    Message("Me", "Install flutter juga jangan lupa gaiss", "9.42", true, 0xFF6C63FF),
-    Message("Meisya Amalia", "Okay!", "10:28", false, 0xFFE91E63),
-    Message("Rexy Putra", "Semangat semangat", "9.42", false, 0xFF4CAF50),
+    Message("Julian Dwi S", "Jangan lupa belajar gaisss!", "9.38", false, 0xFFFF9800),
+    Message("Arya Jagadditha", "Aman jul, tenang aja 🫡", "9:40", false, 0xFFE91E63),
+    Message("Me", "Install flutter juga jangan lupa gaiss", "9.42", true, 0xFF4A148C),
+    Message("Meisya Amalia", "Okay!", "10:28", false, 0xFF009688),
+    Message("Rexy Putra", "Semangat semangat", "9.42", false, 0xFF3F51B5),
   ];
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        backgroundColor: Color(0xFF4A148C), // Deep purple
+        elevation: 0,
         title: Row(
           children: [
             Container(
               width: 32,
               height: 32,
               decoration: BoxDecoration(
-                color: Color(0xFF4CAF50).withOpacity(0.2),
+                color: Color(0xFF7E57C2).withOpacity(0.2),
                 shape: BoxShape.circle,
               ),
               child: Icon(
                 Icons.group,
-                color: Color(0xFF4CAF50),
+                color: Color(0xFF7E57C2),
                 size: 16,
               ),
             ),
@@ -56,11 +59,19 @@ class Chatting extends StatelessWidget {
               children: [
                 Text(
                   "Grup Tubes Provis 🔥",
-                  style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+                  style: TextStyle(
+                    fontSize: 16, 
+                    fontWeight: FontWeight.bold,
+                    color: Color(0xFFEDE7F6),
+                  ),
                 ),
                 Text(
                   "5 participants",
-                  style: TextStyle(fontSize: 12, fontWeight: FontWeight.w400),
+                  style: TextStyle(
+                    fontSize: 12, 
+                    fontWeight: FontWeight.w400,
+                    color: Color(0xFFEDE7F6).withOpacity(0.8),
+                  ),
                 ),
               ],
             ),
@@ -68,22 +79,22 @@ class Chatting extends StatelessWidget {
         ),
         actions: [
           IconButton(
-            icon: Icon(Icons.video_call, size: 26),
+            icon: Icon(Icons.video_call, size: 26, color: Color(0xFFEDE7F6)),
             onPressed: () {},
           ),
           IconButton(
-            icon: Icon(Icons.call, size: 22),
+            icon: Icon(Icons.call, size: 22, color: Color(0xFFEDE7F6)),
             onPressed: () {},
           ),
           IconButton(
-            icon: Icon(Icons.more_vert),
+            icon: Icon(Icons.more_vert, color: Color(0xFFEDE7F6)),
             onPressed: () {},
           ),
         ],
       ),
       body: Container(
         decoration: BoxDecoration(
-          color: Colors.grey[100],
+          color: Color(0xFFF8F9FA), // Light background color
           image: DecorationImage(
             image: AssetImage('assets/chat_bg.jpg'),
             fit: BoxFit.cover,
@@ -178,7 +189,7 @@ class ChatBubble extends StatelessWidget {
             padding: EdgeInsets.symmetric(horizontal: 14, vertical: 10),
             decoration: BoxDecoration(
               color: message.isMe 
-                ? Color(0xFF6C63FF) 
+                ? Color(0xFF4A148C) // Deep purple for my messages
                 : Colors.white,
               borderRadius: BorderRadius.only(
                 topLeft: Radius.circular(18),
@@ -212,7 +223,7 @@ class ChatBubble extends StatelessWidget {
                   message.text,
                   style: TextStyle(
                     fontSize: 15,
-                    color: message.isMe ? Colors.white : Colors.black87,
+                    color: message.isMe ? Color(0xFFEDE7F6) : Colors.black87,
                   ),
                 ),
                 SizedBox(height: 2),
@@ -223,7 +234,7 @@ class ChatBubble extends StatelessWidget {
                       message.time,
                       style: TextStyle(
                         fontSize: 11,
-                        color: message.isMe ? Colors.white70 : Colors.black45,
+                        color: message.isMe ? Color(0xFFEDE7F6).withOpacity(0.7) : Colors.black45,
                       ),
                     ),
                     if (message.isMe) ...[
@@ -231,7 +242,7 @@ class ChatBubble extends StatelessWidget {
                       Icon(
                         Icons.done_all,
                         size: 14,
-                        color: Colors.white70,
+                        color: Color(0xFFEDE7F6).withOpacity(0.7),
                       ),
                     ],
                   ],
@@ -350,7 +361,7 @@ class ChatInputField extends StatelessWidget {
             SizedBox(width: 8),
             Container(
               decoration: BoxDecoration(
-                color: Color(0xFF6C63FF),
+                color: Color(0xFF4A148C), // Deep purple for the send button
                 borderRadius: BorderRadius.circular(30),
               ),
               child: IconButton(

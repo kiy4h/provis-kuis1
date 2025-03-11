@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'main_screen.dart';
 
 void main() {
   runApp(const MyApp());
@@ -10,30 +11,31 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      home: QuizScreen(),
+      title: 'Test Route',
+      routes: {
+        '/': (context) => QuizScreen(),
+        '/main': (context) => HomeScreen()
+      },
     );
   }
 }
 
 class QuizScreen extends StatelessWidget {
-  final List<String> quizOptions = [
-    "Main screen",
-    "Mental health screen",
-    "Akademik screen",
-    "Keuangan screen",
-    "E-learning screen",
-    "Medsos screen",
-    "Jadwal & todo screen",
-    "Pesan & group screen",
-    "Notifikasi screen",
-  ];
+  final Map<String, String> quizOptions = {
+    "Main screen": "/main",
+    "Mental health screen": "/mental_health",
+    "Akademik screen": "/akademik",
+    "Keuangan screen": "/keuangan",
+    "E-learning screen": "/elearning",
+    "Medsos screen": "/medsos",
+    "Jadwal & todo screen": "/jadwal_todo",
+    "Pesan & group screen": "/pesan_group",
+    "Notifikasi screen": "/notifikasi",
+  };
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      // ini body
-      // backgroundColor: Colors.purple.shade50, // Latar belakang soft ungu
       body: Center(
         child: Column(
           mainAxisSize: MainAxisSize.min,
@@ -47,20 +49,20 @@ class QuizScreen extends StatelessWidget {
               ),
             ),
             const SizedBox(height: 20),
-            ...quizOptions.map((option) => Padding(
+            ...quizOptions.entries.map((entry) => Padding(
                   padding: const EdgeInsets.symmetric(vertical: 5),
                   child: ElevatedButton(
-                    onPressed: () {},
+                    onPressed: () {
+                      Navigator.of(context).pushNamed(entry.value);
+                    },
                     style: ElevatedButton.styleFrom(
-                      // foregroundColor: Colors.purple, // Warna teks
-                      // backgroundColor: Colors.white, // Warna tombol
                       padding: const EdgeInsets.symmetric(
                           horizontal: 30, vertical: 15),
                       shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(30),
                       ),
                     ),
-                    child: Text(option),
+                    child: Text(entry.key),
                   ),
                 )),
           ],

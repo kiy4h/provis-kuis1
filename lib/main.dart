@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'main_screen.dart';
+import 'jadwal_todo_screen.dart';
+import 'medsos_screen.dart';
 
 void main() {
   runApp(const MyApp());
@@ -14,7 +16,9 @@ class MyApp extends StatelessWidget {
       title: 'Test Route',
       routes: {
         '/': (context) => QuizScreen(),
-        '/main': (context) => HomeScreen()
+        '/main': (context) => MainScreen(),
+        '/medsos': (context) => MedsosScreen(),
+        '/jadwal_todo': (context) => JadwalTodoScreen(),
       },
     );
   }

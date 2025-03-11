@@ -1,28 +1,48 @@
 import 'package:flutter/material.dart';
-import 'package:carousel_slider/carousel_slider.dart';
+import 'jadwal_todo_screen.dart';
+import 'medsos_screen.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp(MainScreen());
 }
 
-class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+class MainScreen extends StatefulWidget {
+  const MainScreen({super.key});
 
   @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      home: const HomeScreen(),
-    );
-  }
+  MainScreenState createState() => MainScreenState();
 }
 
-class HomeScreen extends StatelessWidget {
-  const HomeScreen({super.key});
+class MainScreenState extends State<MainScreen> {
+  int _selectedIndex = 0;
+
+  final List<Widget> _screens = [
+    MedsosScreen(), // Pindah ke Medsos Screen
+    Center(
+        child: Text("TODO: Elearning Screen",
+            style: TextStyle(fontSize: 24))), // Placeholder untuk notifikasi
+    JadwalTodoScreen(), // Pindah ke Jadwal & To-Do Screen
+    Center(
+        child: Text("TODO: Pesan & Group Screen",
+            style: TextStyle(fontSize: 24))), // Placeholder untuk notifikasi
+    Center(
+        child: Text("TODO: Notifikasi Screen",
+            style: TextStyle(fontSize: 24))), // Placeholder untuk notifikasi
+  ];
+
+  void _onNavItemTapped(int index) {
+    setState(() {
+      _selectedIndex = index;
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      body: IndexedStack(
+        index: _selectedIndex,
+        children: _screens,
+      ),
       appBar: AppBar(
         backgroundColor: Colors.purple[50],
         elevation: 0,
@@ -54,94 +74,13 @@ class HomeScreen extends StatelessWidget {
           ],
         ),
       ),
-      body: Column(
-        children: [
-          // Carousel Slider untuk Beasiswa
-          Padding(
-            padding: const EdgeInsets.all(10),
-            child: CarouselSlider(
-              options: CarouselOptions(height: 150, autoPlay: true),
-              items: [1, 2, 3].map((i) {
-                return Builder(
-                  builder: (context) {
-                    return Container(
-                      width: MediaQuery.of(context).size.width,
-                      margin: const EdgeInsets.symmetric(horizontal: 5.0),
-                      decoration: BoxDecoration(
-                        color: Colors.grey[300],
-                        borderRadius: BorderRadius.circular(10),
-                      ),
-                      child: Column(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          const Icon(Icons.image, size: 50),
-                          const Text("Beasiswa Sampurna",
-                              style: TextStyle(fontWeight: FontWeight.bold)),
-                          const Text("Beasiswa untuk siswa berprestasi."),
-                        ],
-                      ),
-                    );
-                  },
-                );
-              }).toList(),
-            ),
-          ),
-
-          // Kuliah & Tugas
-          Container(
-            margin: const EdgeInsets.symmetric(horizontal: 10),
-            padding: const EdgeInsets.all(10),
-            decoration: BoxDecoration(
-              color: Colors.purple[50],
-              borderRadius: BorderRadius.circular(10),
-            ),
-            child: const Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Text("Kuliah hari ini ...",
-                    style: TextStyle(fontWeight: FontWeight.bold)),
-                Text(
-                    "Pemrograman Visual, 9.30 (C205); Data Mining 13.00 (C307)"),
-              ],
-            ),
-          ),
-
-          Container(
-            margin: const EdgeInsets.symmetric(horizontal: 10, vertical: 5),
-            padding: const EdgeInsets.all(10),
-            decoration: BoxDecoration(
-              color: Colors.purple[50],
-              borderRadius: BorderRadius.circular(10),
-            ),
-            child: const Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Text("Tugas", style: TextStyle(fontWeight: FontWeight.bold)),
-                Text("Tubes 1 Provis (besok, 19.00)"),
-              ],
-            ),
-          ),
-
-          // Menu Grid
-          Padding(
-            padding: const EdgeInsets.all(10),
-            child: GridView.count(
-              shrinkWrap: true,
-              crossAxisCount: 3,
-              children: [
-                _buildMenuItem(Icons.favorite, "Mental Health"),
-                _buildMenuItem(Icons.folder, "Akademik"),
-                _buildMenuItem(Icons.account_balance_wallet, "Keuangan"),
-              ],
-            ),
-          ),
-        ],
-      ),
 
       // Bottom Navigation Bar
       bottomNavigationBar: BottomNavigationBar(
         selectedItemColor: Colors.purple,
         unselectedItemColor: Colors.grey,
+        currentIndex: _selectedIndex,
+        onTap: _onNavItemTapped,
         items: const [
           BottomNavigationBarItem(icon: Icon(Icons.message), label: "Medsos"),
           BottomNavigationBarItem(icon: Icon(Icons.school), label: "Elearning"),
@@ -153,22 +92,6 @@ class HomeScreen extends StatelessWidget {
               icon: Icon(Icons.notifications), label: "Notifikasi"),
         ],
       ),
-    );
-  }
-
-  Widget _buildMenuItem(IconData icon, String label) {
-    return Column(
-      children: [
-        Container(
-          decoration: BoxDecoration(
-            color: Colors.purple[50],
-            shape: BoxShape.circle,
-          ),
-          padding: const EdgeInsets.all(10),
-          child: Icon(icon, color: Colors.purple),
-        ),
-        Text(label, style: const TextStyle(fontSize: 12)),
-      ],
     );
   }
 }

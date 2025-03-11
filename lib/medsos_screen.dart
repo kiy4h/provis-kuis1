@@ -13,6 +13,13 @@ class MedsosScreen extends StatefulWidget {
 }
 
 class MedsosScreenState extends State<MedsosScreen> {
+  final List<String> imageList = [
+    'assets/images/test_img.jpg',
+    'assets/images/cat.jpg',
+    'assets/images/cat.jpg',
+    'assets/images/cat.jpg',
+    'assets/images/cat.jpg',
+  ];
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -22,24 +29,46 @@ class MedsosScreenState extends State<MedsosScreen> {
           Padding(
             padding: const EdgeInsets.all(10),
             child: CarouselSlider(
-              options: CarouselOptions(height: 150, autoPlay: true),
-              items: [1, 2, 3].map((i) {
+              options: CarouselOptions(height: 300, autoPlay: true),
+              items: imageList.map((imageUrl) {
                 return Builder(
-                  builder: (context) {
+                  builder: (BuildContext context) {
                     return Container(
                       width: MediaQuery.of(context).size.width,
-                      margin: const EdgeInsets.symmetric(horizontal: 5.0),
-                      decoration: BoxDecoration(
-                        color: Colors.grey[300],
-                        borderRadius: BorderRadius.circular(10),
-                      ),
-                      child: Column(
-                        mainAxisAlignment: MainAxisAlignment.center,
+                      margin: EdgeInsets.symmetric(horizontal: 5.0),
+                      child: Stack(
                         children: [
-                          const Icon(Icons.image, size: 50),
-                          const Text("Beasiswa Sampurna",
-                              style: TextStyle(fontWeight: FontWeight.bold)),
-                          const Text("Beasiswa untuk siswa berprestasi."),
+                          // Background image
+                          Container(
+                            decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(8.0),
+                              image: DecorationImage(
+                                image: NetworkImage(imageUrl),
+                                fit: BoxFit.cover,
+                              ),
+                            ),
+                          ),
+                          // Text overlay
+                          Positioned(
+                            bottom: 20,
+                            left: 20,
+                            child: Container(
+                              padding: EdgeInsets.symmetric(
+                                  horizontal: 10, vertical: 5),
+                              decoration: BoxDecoration(
+                                color: Colors.black.withAlpha(150),
+                                borderRadius: BorderRadius.circular(8),
+                              ),
+                              child: Text(
+                                "Your Text Here",
+                                style: TextStyle(
+                                  color: Colors.white,
+                                  fontSize: 18,
+                                  fontWeight: FontWeight.bold,
+                                ),
+                              ),
+                            ),
+                          ),
                         ],
                       ),
                     );

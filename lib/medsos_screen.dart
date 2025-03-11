@@ -79,38 +79,15 @@ class MedsosScreenState extends State<MedsosScreen> {
           ),
 
           // Kuliah & Tugas
-          Container(
-            margin: const EdgeInsets.symmetric(horizontal: 10),
-            padding: const EdgeInsets.all(10),
-            decoration: BoxDecoration(
-              color: Colors.purple[50],
-              borderRadius: BorderRadius.circular(10),
-            ),
-            child: const Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Text("Kuliah hari ini ...",
-                    style: TextStyle(fontWeight: FontWeight.bold)),
-                Text(
-                    "Pemrograman Visual, 9.30 (C205); Data Mining 13.00 (C307)"),
-              ],
-            ),
+          _buildCard(
+            title: "Kuliah Hari Ini",
+            content:
+                "Pemrograman Visual, 9.30 (C205)\nData Mining, 13.00 (C307)",
           ),
-
-          Container(
-            margin: const EdgeInsets.symmetric(horizontal: 10, vertical: 5),
-            padding: const EdgeInsets.all(10),
-            decoration: BoxDecoration(
-              color: Colors.purple[50],
-              borderRadius: BorderRadius.circular(10),
-            ),
-            child: const Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Text("Tugas", style: TextStyle(fontWeight: FontWeight.bold)),
-                Text("Tubes 1 Provis (besok, 19.00)"),
-              ],
-            ),
+          const SizedBox(height: 10),
+          _buildCard(
+            title: "Tugas",
+            content: "Tubes 1 Provis (Besok, 19.00)",
           ),
 
           // Menu Grid
@@ -131,6 +108,36 @@ class MedsosScreenState extends State<MedsosScreen> {
                 }),
               ],
             ),
+          ),
+        ],
+      ),
+    );
+  }
+
+  Widget _buildCard({required String title, required String content}) {
+    return Container(
+      width: MediaQuery.of(context).size.width,
+      margin: EdgeInsets.symmetric(horizontal: 10.0),
+      padding: const EdgeInsets.all(15),
+      decoration: BoxDecoration(
+        color: Colors.purple[50],
+        borderRadius: BorderRadius.circular(12),
+      ),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Text(
+            title,
+            style: const TextStyle(
+              fontSize: 16,
+              fontWeight: FontWeight.bold,
+              // color: Colors.purple,
+            ),
+          ),
+          const SizedBox(height: 5),
+          Text(
+            content,
+            style: const TextStyle(fontSize: 14),
           ),
         ],
       ),

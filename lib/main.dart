@@ -80,10 +80,16 @@ class QuizScreen extends StatelessWidget {
           mainAxisSize: MainAxisSize.min,
           children: [
             const Text(
-              "Quiz 1",
+              "Quiz 1 | Kelompok 2",
               style: TextStyle(
                 fontSize: 24,
                 fontWeight: FontWeight.bold,
+                color: Colors.black87,
+              ),
+            ),
+            const Text(
+              "2301410 Nuansa Bening A. J.\n2305274 Zakiyah Hasanah",
+              style: TextStyle(
                 color: Colors.black87,
               ),
             ),

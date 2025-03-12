@@ -1,16 +1,62 @@
-# kuis
+# KUIS 1 | KELOMPOK 2
 
 A new Flutter project.
 
-## Getting Started
+## 👥 Anggota Kelompok
+- **[2301410] Nuansa Bening A.J**  
+- **[2305274] Zakiyah Hasanah**  
 
-This project is a starting point for a Flutter application.
+## 📱 Tampilan Aplikasi
 
-A few resources to get you started if this is your first Flutter project:
+### 🏠 Main Screen  
+Dapat di scroll 
+![Main Screen](assets/image/image.png)
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+### 📲 Medsos Screen  
+Dapat di scroll 
+![Medsos Screen](assets/image/medsos.png)
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+### 📲 Tambah Konten (Bagian Medsos) 
+![Medsos Screen](assets/image/tambah_konten.png)
+
+### 💡 Mental Health Screen  
+Dapat di scroll 
+![Mental Health Screen](assets/image/mental_health.png)
+
+### 🎓 Akademik Screen
+Dapat di scroll   
+![Akademik Screen](assets/image/akademik.png)
+
+### 🎓 Detail Akademik (Bagian Akademik) 
+Dapat di scroll 
+![Akademik Screen](assets/image/detail_akademik.png)
+
+### 💰 Keuangan Screen  
+![Keuangan Screen](assets/image/keuangan.png)
+
+### 💰 Pengeluaran (Bagian Keuangan) 
+Dapat di scroll 
+![Keuangan Screen](assets/image/pengeluaran.png)
+
+### 📚 E-learning Screen  
+Dapat di scroll 
+![E-learning Screen](assets/image/elearning.png)
+
+### 📅 Jadwal & To-Do Screen  
+![Jadwal & To-Do](assets/image/jadwal_todo.png)
+
+### 📅 Deadline Tugas (Bagian Jadwal & To-Do) 
+![Jadwal & To-Do](assets/image/deadline_tugas.png)
+
+### 📅 To-Do List (Bagian Jadwal & To-Do) 
+![Jadwal & To-Do](assets/image/todo_list.png)
+
+### 💬 Pesan & Group Screen  
+![Pesan & Group](assets/image/pesan_group.png)
+
+### 💬 Chatting (Bagian Pesan & Group) 
+![Pesan & Group](assets/image/chatting.png)
+
+### 🔔 Notifikasi Screen 
+Dapat di scroll 
+![Notifikasi Screen](assets/image/notifikasi.png)

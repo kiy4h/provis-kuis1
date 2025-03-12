@@ -35,7 +35,15 @@ class MyApp extends StatelessWidget {
         '/keuangan': (context) => KeuanganScreen(),
         '/pengeluaran': (context) => TambahPengeluaran(),
         '/elearning': (context) => ElearningDisplay(),
-        '/jadwal_todo': (context) => JadwalTodoScreen(),
+        '/jadwal_todo1': (context) => JadwalTodoScreen(
+              initialTabIndex: 0,
+            ),
+        '/jadwal_todo2': (context) => JadwalTodoScreen(
+              initialTabIndex: 1,
+            ),
+        '/jadwal_todo3': (context) => JadwalTodoScreen(
+              initialTabIndex: 2,
+            ),
         '/pesan_group': (context) => ChatScreen(),
         '/chat': (context) => Chatting(),
         '/notifikasi': (context) => NotifikasiScreen(),
@@ -56,7 +64,9 @@ class QuizScreen extends StatelessWidget {
     "Keuangan screen": "/keuangan",
     "Keuangan: bagian Tambah Pengeluaran": "/pengeluaran",
     "E-learning screen": "/elearning",
-    "Jadwal & todo screen": "/jadwal_todo",
+    "Jadwal & todo screen (Jadwal kuliah)": "/jadwal_todo1",
+    "Jadwal & todo: Deadline tugas": "/jadwal_todo2",
+    "Jadwal & todo: To-do list": "/jadwal_todo3",
     "Pesan & group screen": "/pesan_group",
     "Pesan & group: bagian Chat": "/chat",
     "Notifikasi screen": "/notifikasi",

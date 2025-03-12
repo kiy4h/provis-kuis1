@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 
 class JadwalTodoScreen extends StatefulWidget {
-  const JadwalTodoScreen({super.key});
+  final int initialTabIndex; // Add this
+
+  const JadwalTodoScreen({super.key, this.initialTabIndex = 0});
 
   @override
   JadwalTodoScreenState createState() => JadwalTodoScreenState();
@@ -10,6 +12,7 @@ class JadwalTodoScreen extends StatefulWidget {
 class JadwalTodoScreenState extends State<JadwalTodoScreen>
     with SingleTickerProviderStateMixin {
   late TabController _tabController;
+
   final List<String> todoList = [
     "Mengerjakan tugas Provis",
     "Mengerjakan tugas Analisis & Desain Algoritma",
@@ -19,7 +22,11 @@ class JadwalTodoScreenState extends State<JadwalTodoScreen>
   @override
   void initState() {
     super.initState();
-    _tabController = TabController(length: 3, vsync: this);
+    _tabController = TabController(
+      length: 3,
+      vsync: this,
+      initialIndex: widget.initialTabIndex, // Set the initial tab
+    );
   }
 
   @override

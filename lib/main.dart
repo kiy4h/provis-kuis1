@@ -82,7 +82,7 @@ class QuizScreen extends StatelessWidget {
             const Text(
               "Quiz 1 | Kelompok 2",
               style: TextStyle(
-                fontSize: 24,
+                fontSize: 20,
                 fontWeight: FontWeight.bold,
                 color: Colors.black87,
               ),
@@ -90,35 +90,48 @@ class QuizScreen extends StatelessWidget {
             const Text(
               "2301410 Nuansa Bening A. J.\n2305274 Zakiyah Hasanah",
               style: TextStyle(
+                fontSize: 12,
                 color: Colors.black87,
               ),
             ),
-            const SizedBox(height: 20),
-            ...quizOptions.entries.map((entry) => Padding(
-                  padding: const EdgeInsets.symmetric(vertical: 5),
-                  child: ElevatedButton(
-                    onPressed: () {
-                      Navigator.of(context).pushNamed(entry.value);
-                    },
-                    style: ElevatedButton.styleFrom(
-                      padding: const EdgeInsets.symmetric(
-                          horizontal: 30, vertical: 15),
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(30),
-                      ),
-                    ),
-                    child: Text.rich(
-                      TextSpan(
-                        text: entry.key,
-                        style: TextStyle(
-                          fontWeight: entry.key.contains(":")
-                              ? FontWeight.normal
-                              : FontWeight.bold,
-                        ),
-                      ),
-                    ),
-                  ),
-                )),
+            const SizedBox(height: 12),
+            Expanded(
+              child: SingleChildScrollView(
+                child: Column(
+                  children: quizOptions.entries
+                      .map((entry) => Padding(
+                            padding: const EdgeInsets.symmetric(vertical: 3),
+                            child: SizedBox(
+                              width: MediaQuery.of(context).size.width * 0.75,
+                              child: ElevatedButton(
+                                onPressed: () {
+                                  Navigator.of(context).pushNamed(entry.value);
+                                },
+                                style: ElevatedButton.styleFrom(
+                                  padding: const EdgeInsets.symmetric(
+                                      horizontal: 24, vertical: 8),
+                                  shape: RoundedRectangleBorder(
+                                    borderRadius: BorderRadius.circular(30),
+                                  ),
+                                ),
+                                child: Text.rich(
+                                  TextSpan(
+                                    text: entry.key,
+                                    style: TextStyle(
+                                      fontSize: 13,
+                                      fontWeight: entry.key.contains(":")
+                                          ? FontWeight.normal
+                                          : FontWeight.bold,
+                                    ),
+                                  ),
+                                ),
+                              ),
+                            ),
+                          ))
+                      .toList(),
+                ),
+              ),
+            ),
           ],
         ),
       ),

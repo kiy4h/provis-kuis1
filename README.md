@@ -1,7 +1,4 @@
 # KUIS 1 | KELOMPOK 2
-
-A new Flutter project.
-
 ## 👥 Anggota Kelompok
 - **[2301410] Nuansa Bening A.J**  
 - **[2305274] Zakiyah Hasanah**  

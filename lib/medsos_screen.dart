@@ -71,13 +71,14 @@ class _MedsosScreenState extends State<MedsosScreen> {
       ),
     );
   }
-  
+
   Widget _buildScrollableContent() {
     // Dummy data untuk postingan dengan path gambar dari assets
     List<Map<String, dynamic>> posts = [
       {
         'name': 'Raka Pratama',
-        'content': 'Sedang belajar Flutter untuk tugas akhir. Wish me luck! 📱💻',
+        'content':
+            'Sedang belajar Flutter untuk tugas akhir. Wish me luck! 📱💻',
         'type': 'status',
         'time': '15 menit yang lalu',
         'likes': 12,
@@ -104,7 +105,8 @@ class _MedsosScreenState extends State<MedsosScreen> {
       },
       {
         'name': 'Diana Putri',
-        'content': 'Ujian minggu depan, siapa yang sudah siap? Saya mau buat grup belajar, yang minat comment ya!',
+        'content':
+            'Ujian minggu depan, siapa yang sudah siap? Saya mau buat grup belajar, yang minat comment ya!',
         'type': 'status',
         'time': '5 jam yang lalu',
         'likes': 27,
@@ -118,10 +120,10 @@ class _MedsosScreenState extends State<MedsosScreen> {
         'time': '1 hari yang lalu',
         'likes': 89,
         'comments': 12,
-        'image': 'assets/images/seminar.jpg', 
+        'image': 'assets/images/seminar.jpg',
       },
     ];
-    
+
     return ListView(
       padding: EdgeInsets.only(bottom: 80), // Memberikan ruang di bagian bawah
       children: [
@@ -145,7 +147,8 @@ class _MedsosScreenState extends State<MedsosScreen> {
                     SizedBox(width: 10),
                     Expanded(
                       child: Container(
-                        padding: EdgeInsets.symmetric(horizontal: 15, vertical: 15),
+                        padding:
+                            EdgeInsets.symmetric(horizontal: 15, vertical: 15),
                         decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(20),
                           border: Border.all(color: Color(0xFFE0E0E0)),
@@ -167,8 +170,10 @@ class _MedsosScreenState extends State<MedsosScreen> {
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
                     _buildPostButton(Icons.image, "Foto", Color(0xFF4CAF50)),
-                    _buildPostButton(Icons.videocam, "Video", Color(0xFFE53935)),
-                    _buildPostButton(Icons.text_fields, "Status", Color(0xFF4A148C)),
+                    _buildPostButton(
+                        Icons.videocam, "Video", Color(0xFFE53935)),
+                    _buildPostButton(
+                        Icons.text_fields, "Status", Color(0xFF4A148C)),
                   ],
                 ),
                 SizedBox(height: 10),
@@ -193,15 +198,15 @@ class _MedsosScreenState extends State<MedsosScreen> {
             ),
           ),
         ),
-        
+
         Divider(height: 1, thickness: 1, color: Color(0xFFEEEEEE)),
-        
+
         // Daftar postingan
         ...posts.map((post) => _buildPostCard(post)).toList(),
       ],
     );
   }
-  
+
   Widget _buildPostButton(IconData icon, String label, Color color) {
     return Container(
       padding: EdgeInsets.symmetric(horizontal: 12, vertical: 6),
@@ -225,7 +230,7 @@ class _MedsosScreenState extends State<MedsosScreen> {
       ),
     );
   }
-  
+
   Widget _buildPostCard(Map<String, dynamic> post) {
     return Card(
       margin: EdgeInsets.symmetric(horizontal: 10, vertical: 6),
@@ -277,14 +282,14 @@ class _MedsosScreenState extends State<MedsosScreen> {
               ],
             ),
             SizedBox(height: 10),
-            
+
             // Isi Postingan
             Text(
               post['content'],
               style: TextStyle(fontSize: 14),
             ),
             SizedBox(height: 10),
-            
+
             // Media (Foto/Video) dari assets atau placeholder
             if (post['type'] != 'status')
               Container(
@@ -306,34 +311,41 @@ class _MedsosScreenState extends State<MedsosScreen> {
                       )
                     : Center(
                         child: post['type'] == 'photo'
-                            ? Icon(Icons.image, size: 50, color: Color(0xFF4A148C).withOpacity(0.5))
-                            : Icon(Icons.play_circle_outline, size: 50, color: Color(0xFF4A148C).withOpacity(0.5)),
+                            ? Icon(Icons.image,
+                                size: 50,
+                                color: Color(0xFF4A148C).withOpacity(0.5))
+                            : Icon(Icons.play_circle_outline,
+                                size: 50,
+                                color: Color(0xFF4A148C).withOpacity(0.5)),
                       ),
               ),
-            
+
             SizedBox(height: 10),
-            
+
             // Like & Comment
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 Row(
                   children: [
-                    Icon(Icons.favorite_border, size: 20, color: Colors.grey[700]),
+                    Icon(Icons.favorite_border,
+                        size: 20, color: Colors.grey[700]),
                     SizedBox(width: 5),
                     Text('${post['likes']}'),
                   ],
                 ),
                 Row(
                   children: [
-                    Icon(Icons.chat_bubble_outline, size: 20, color: Colors.grey[700]),
+                    Icon(Icons.chat_bubble_outline,
+                        size: 20, color: Colors.grey[700]),
                     SizedBox(width: 5),
                     Text('${post['comments']}'),
                   ],
                 ),
                 Row(
                   children: [
-                    Icon(Icons.share_outlined, size: 20, color: Colors.grey[700]),
+                    Icon(Icons.share_outlined,
+                        size: 20, color: Colors.grey[700]),
                     SizedBox(width: 5),
                     Text('Bagikan'),
                   ],

@@ -11,6 +11,7 @@ import 'package:kuis/chat_screen.dart';
 import 'main_screen.dart';
 import 'jadwal_todo_screen.dart';
 import 'medsos_screen.dart';
+import 'up_medsos.dart';
 
 void main() {
   runApp(const MyApp());
@@ -27,6 +28,7 @@ class MyApp extends StatelessWidget {
         '/': (context) => QuizScreen(),
         '/main': (context) => MainScreen(),
         '/medsos': (context) => MedsosScreen(),
+        '/medsos_upload': (context) => UpMedsos(),
         '/mental_health': (context) => MentalHealthScreen(),
         '/akademik': (context) => AkademikScreen(),
         '/detail_akademik': (context) => DetailAkademik(),
@@ -47,6 +49,7 @@ class QuizScreen extends StatelessWidget {
   final Map<String, String> quizOptions = {
     "Main screen": "/main",
     "Medsos screen": "/medsos",
+    "Medsos: Tambah konten": "/medsos_upload",
     "Mental health screen": "/mental_health",
     "Akademik screen": "/akademik",
     "Akademik: bagian Detail Akademik": "/detail_akademik",
@@ -88,7 +91,16 @@ class QuizScreen extends StatelessWidget {
                         borderRadius: BorderRadius.circular(30),
                       ),
                     ),
-                    child: Text(entry.key),
+                    child: Text.rich(
+                      TextSpan(
+                        text: entry.key,
+                        style: TextStyle(
+                          fontWeight: entry.key.contains(":")
+                              ? FontWeight.normal
+                              : FontWeight.bold,
+                        ),
+                      ),
+                    ),
                   ),
                 )),
           ],

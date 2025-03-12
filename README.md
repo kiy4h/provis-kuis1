@@ -6,57 +6,59 @@ A new Flutter project.
 - **[2301410] Nuansa Bening A.J**  
 - **[2305274] Zakiyah Hasanah**  
 
-## 📱 Tampilan Aplikasi
+## 📱 Tampilan Awal
+Dapat di scroll 
+![Main Screen](assets/images/main.png)
 
 ### 🏠 Main Screen  
 Dapat di scroll 
-![Main Screen](assets/image/image.png)
+![Main Screen](assets/images/image.png)
 
 ### 📲 Medsos Screen  
 Dapat di scroll 
-![Medsos Screen](assets/image/medsos.png)
+![Medsos Screen](assets/images/medsos.png)
 
 ### 📲 Tambah Konten (Bagian Medsos) 
-![Medsos Screen](assets/image/tambah_konten.png)
+![Medsos Screen](assets/images/tambah_konten.png)
 
 ### 💡 Mental Health Screen  
 Dapat di scroll 
-![Mental Health Screen](assets/image/mental_health.png)
+![Mental Health Screen](assets/images/mental_health.png)
 
 ### 🎓 Akademik Screen
 Dapat di scroll   
-![Akademik Screen](assets/image/akademik.png)
+![Akademik Screen](assets/images/akademik.png)
 
 ### 🎓 Detail Akademik (Bagian Akademik) 
 Dapat di scroll 
-![Akademik Screen](assets/image/detail_akademik.png)
+![Akademik Screen](assets/images/detail_akademik.png)
 
 ### 💰 Keuangan Screen  
-![Keuangan Screen](assets/image/keuangan.png)
+![Keuangan Screen](assets/images/keuangan.png)
 
 ### 💰 Pengeluaran (Bagian Keuangan) 
 Dapat di scroll 
-![Keuangan Screen](assets/image/pengeluaran.png)
+![Keuangan Screen](assets/images/pengeluaran.png)
 
 ### 📚 E-learning Screen  
 Dapat di scroll 
-![E-learning Screen](assets/image/elearning.png)
+![E-learning Screen](assets/images/elearning.png)
 
 ### 📅 Jadwal & To-Do Screen  
-![Jadwal & To-Do](assets/image/jadwal_todo.png)
+![Jadwal & To-Do](assets/images/jadwal_todo.png)
 
 ### 📅 Deadline Tugas (Bagian Jadwal & To-Do) 
-![Jadwal & To-Do](assets/image/deadline_tugas.png)
+![Jadwal & To-Do](assets/images/deadline_tugas.png)
 
 ### 📅 To-Do List (Bagian Jadwal & To-Do) 
-![Jadwal & To-Do](assets/image/todo_list.png)
+![Jadwal & To-Do](assets/images/todo_list.png)
 
 ### 💬 Pesan & Group Screen  
-![Pesan & Group](assets/image/pesan_group.png)
+![Pesan & Group](assets/images/pesan_group.png)
 
 ### 💬 Chatting (Bagian Pesan & Group) 
-![Pesan & Group](assets/image/chatting.png)
+![Pesan & Group](assets/images/chatting.png)
 
 ### 🔔 Notifikasi Screen 
 Dapat di scroll 
-![Notifikasi Screen](assets/image/notifikasi.png)
+![Notifikasi Screen](assets/images/notifikasi.png)

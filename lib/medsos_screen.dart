@@ -26,6 +26,7 @@ class MedsosScreen extends StatefulWidget {
 class _MedsosScreenState extends State<MedsosScreen> {
   @override
   Widget build(BuildContext context) {
+    // ini masih kosong, blm diisi !!!!!!!!!
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Color(0xFF4A148C),

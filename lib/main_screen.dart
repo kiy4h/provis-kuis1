@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'jadwal_todo_screen.dart';
+import 'home_screen.dart';
 import 'medsos_screen.dart';
 import 'pesan_group_screen.dart';
 import 'elearning_screen.dart';
@@ -20,6 +21,7 @@ class MainScreenState extends State<MainScreen> {
   int _selectedIndex = 0;
 
   final List<Widget> _screens = [
+    HomeScreen(), // Pindah ke Home Screen
     MedsosScreen(), // Pindah ke Medsos Screen
     ElearningScreen(), // Pindah ke E-Learning Screen
     JadwalTodoScreen(), // Pindah ke Jadwal & To-Do Screen
@@ -40,31 +42,7 @@ class MainScreenState extends State<MainScreen> {
         index: _selectedIndex,
         children: _screens,
       ),
-      appBar: AppBar(
-        backgroundColor: Colors.purple[50],
-        toolbarHeight: 80,
-        elevation: 0,
-        title: TextField(
-          decoration: InputDecoration(
-            hintText: "Cari pengumuman, materi kuliah",
-            prefixIcon: const Icon(Icons.search),
-            filled: true,
-            fillColor: Colors.white,
-            border: OutlineInputBorder(
-              borderRadius: BorderRadius.circular(30),
-              borderSide: BorderSide.none,
-            ),
-          ),
-        ),
-        actions: [
-          IconButton(
-            icon: const Icon(Icons.account_circle, size: 60),
-            onPressed: () {
-              // TODO: add action to profile page
-            },
-          ),
-        ],
-      ),
+      appBar: const SearchableAppBar(),
       drawer: Drawer(
         child: ListView(
           children: const [
@@ -85,6 +63,7 @@ class MainScreenState extends State<MainScreen> {
         currentIndex: _selectedIndex,
         onTap: _onNavItemTapped,
         items: const [
+          BottomNavigationBarItem(icon: Icon(Icons.home), label: "Home"),
           BottomNavigationBarItem(
               icon: Icon(Icons.emoji_emotions), label: "Medsos"),
           BottomNavigationBarItem(
@@ -96,6 +75,91 @@ class MainScreenState extends State<MainScreen> {
           BottomNavigationBarItem(
               icon: Icon(Icons.notifications), label: "Notifikasi"),
         ],
+      ),
+    );
+  }
+}
+
+class SearchableAppBar extends StatefulWidget implements PreferredSizeWidget {
+  const SearchableAppBar({super.key});
+
+  @override
+  State<SearchableAppBar> createState() => _SearchableAppBarState();
+
+  @override
+  Size get preferredSize => const Size.fromHeight(80);
+}
+
+class _SearchableAppBarState extends State<SearchableAppBar> {
+  bool _isSearching = false;
+
+  @override
+  Widget build(BuildContext context) {
+    return AppBar(
+      backgroundColor: const Color(0xFF4A148C),
+      toolbarHeight: 80,
+      elevation: 0,
+      title: _isSearching
+          ? TextField(
+              autofocus: true,
+              decoration: InputDecoration(
+                hintText: "Cari pengumuman, materi kuliah",
+                hintStyle: const TextStyle(color: Colors.white70),
+                prefixIcon: const Icon(Icons.search, color: Color(0xFFEDE7F6)),
+                filled: false,
+                enabledBorder: const UnderlineInputBorder(
+                  borderSide: BorderSide(color: Color(0xFFEDE7F6)),
+                ),
+                focusedBorder: const UnderlineInputBorder(
+                  borderSide: BorderSide(color: Color(0xFFEDE7F6)),
+                ),
+              ),
+              style: const TextStyle(color: Color(0xFFEDE7F6)),
+              cursorColor: const Color(0xFFEDE7F6),
+              onSubmitted: (_) {
+                setState(() {
+                  _isSearching = false;
+                });
+              },
+            )
+          : const Text(
+              'E-Campus',
+              style: TextStyle(
+                color: Color(0xFFEDE7F6),
+                fontWeight: FontWeight.w600,
+                fontSize: 20,
+                letterSpacing: 0.5,
+              ),
+            ),
+      actions: [
+        IconButton(
+          icon: Icon(
+            _isSearching ? Icons.close : Icons.search,
+            color: const Color(0xFFEDE7F6),
+            size: 26,
+          ),
+          onPressed: () {
+            setState(() {
+              _isSearching = !_isSearching;
+            });
+          },
+        ),
+        Padding(
+          padding: const EdgeInsets.only(right: 16),
+          child: IconButton(
+            icon: const Icon(
+              Icons.account_circle,
+              size: 40,
+              color: Color(0xFFEDE7F6),
+            ),
+            onPressed: () {},
+          ),
+        ),
+      ],
+      shape: const RoundedRectangleBorder(
+        borderRadius: BorderRadius.vertical(
+          bottom: Radius.circular(16),
+        ),
       ),
     );
   }

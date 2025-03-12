@@ -14,6 +14,8 @@ void main() {
 }
 
 class UpMedsos extends StatelessWidget {
+  const UpMedsos({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -30,8 +32,6 @@ class UpMedsos extends StatelessWidget {
           ),
         ),
         centerTitle: true,
-        // Menghapus tombol back dengan mengosongkan leading property
-        leading: Container(),
         actions: [
           Container(
             margin: EdgeInsets.only(right: 16),

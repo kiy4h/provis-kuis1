@@ -56,20 +56,20 @@ class QuizScreen extends StatelessWidget {
   QuizScreen({super.key});
   final Map<String, String> quizOptions = {
     "Main screen": "/main",
-    "Medsos screen": "/medsos",
-    "Medsos: Tambah konten": "/medsos_upload",
-    "Mental health screen": "/mental_health",
-    "Akademik screen": "/akademik",
-    "Akademik: bagian Detail Akademik": "/detail_akademik",
-    "Keuangan screen": "/keuangan",
-    "Keuangan: bagian Tambah Pengeluaran": "/pengeluaran",
-    "E-learning screen": "/elearning",
-    "Jadwal & todo screen (Jadwal kuliah)": "/jadwal_todo1",
-    "Jadwal & todo: Deadline tugas": "/jadwal_todo2",
-    "Jadwal & todo: To-do list": "/jadwal_todo3",
-    "Pesan & group screen": "/pesan_group",
-    "Pesan & group: bagian Chat": "/chat",
-    "Notifikasi screen": "/notifikasi",
+    "1. Mental health screen": "/mental_health",
+    "2. Akademik screen": "/akademik",
+    "2.a. Akademik: bagian Detail Akademik": "/detail_akademik",
+    "3. Keuangan screen": "/keuangan",
+    "3.a. Keuangan: bagian Tambah Pengeluaran": "/pengeluaran",
+    "4. Medsos screen": "/medsos",
+    "4.a. Medsos: Tambah konten": "/medsos_upload",
+    "5. E-learning screen": "/elearning",
+    "6.a. Jadwal & todo: Jadwal kuliah": "/jadwal_todo1",
+    "6.b. Jadwal & todo: Deadline tugas": "/jadwal_todo2",
+    "6.c. Jadwal & todo: To-do list": "/jadwal_todo3",
+    "7. Pesan & group screen": "/pesan_group",
+    "7.a. Pesan & group: bagian Chat": "/chat",
+    "8. Notifikasi screen": "/notifikasi",
   };
 
   @override
@@ -114,14 +114,17 @@ class QuizScreen extends StatelessWidget {
                                     borderRadius: BorderRadius.circular(30),
                                   ),
                                 ),
-                                child: Text.rich(
-                                  TextSpan(
-                                    text: entry.key,
-                                    style: TextStyle(
-                                      fontSize: 13,
-                                      fontWeight: entry.key.contains(":")
-                                          ? FontWeight.normal
-                                          : FontWeight.bold,
+                                child: Align(
+                                  alignment: Alignment.centerLeft,
+                                  child: Text.rich(
+                                    TextSpan(
+                                      text: entry.key,
+                                      style: TextStyle(
+                                        fontSize: 13,
+                                        fontWeight: entry.key.contains(":")
+                                            ? FontWeight.normal
+                                            : FontWeight.bold,
+                                      ),
                                     ),
                                   ),
                                 ),

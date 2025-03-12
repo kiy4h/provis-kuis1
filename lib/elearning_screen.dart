@@ -22,8 +22,8 @@ class ElearningScreen extends StatelessWidget {
 
 class ElearningDisplay extends StatelessWidget {
   // Warna utama - ungu
-  final Color primaryColor = Colors.deepPurple;
-  
+  final Color primaryColor = const Color(0xFF4A148C);
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -33,11 +33,28 @@ class ElearningDisplay extends StatelessWidget {
         backgroundColor: primaryColor,
         title: Text(
           "E-Campus",
-          style: TextStyle(fontWeight: FontWeight.bold),
+          style: TextStyle(
+            color: Color(0xFFEDE7F6),
+            fontWeight: FontWeight.w600,
+            fontSize: 20,
+            letterSpacing: 0.5,
+          ),
         ),
         actions: [
-          IconButton(icon: Icon(Icons.message), onPressed: () {}),
-          IconButton(icon: Icon(Icons.notifications), onPressed: () {}),
+          IconButton(
+              icon: Icon(
+                Icons.message,
+                color: const Color(0xFFEDE7F6),
+                size: 26,
+              ),
+              onPressed: () {}),
+          IconButton(
+              icon: Icon(
+                Icons.notifications,
+                color: const Color(0xFFEDE7F6),
+                size: 26,
+              ),
+              onPressed: () {}),
         ],
       ),
       drawer: Drawer(
@@ -46,7 +63,8 @@ class ElearningDisplay extends StatelessWidget {
           children: [
             UserAccountsDrawerHeader(
               decoration: BoxDecoration(color: primaryColor),
-              accountName: Text("Zaning", style: TextStyle(fontWeight: FontWeight.bold)),
+              accountName:
+                  Text("Zaning", style: TextStyle(fontWeight: FontWeight.bold)),
               accountEmail: Text("Level 3 • 1200 XP"),
               currentAccountPicture: CircleAvatar(
                 backgroundImage: AssetImage('assets/images/student.jpg'),
@@ -105,11 +123,15 @@ class ElearningDisplay extends StatelessWidget {
                 children: [
                   Text(
                     "Selamat Datang Kembali,",
-                    style: TextStyle(color: Colors.white.withOpacity(0.8), fontSize: 16),
+                    style: TextStyle(
+                        color: Colors.white.withOpacity(0.8), fontSize: 16),
                   ),
                   Text(
                     "Zaning",
-                    style: TextStyle(color: Colors.white, fontSize: 22, fontWeight: FontWeight.bold),
+                    style: TextStyle(
+                        color: Colors.white,
+                        fontSize: 22,
+                        fontWeight: FontWeight.bold),
                   ),
                   SizedBox(height: 15),
                   Container(
@@ -146,7 +168,8 @@ class ElearningDisplay extends StatelessWidget {
                     children: [
                       Text(
                         "Kemajuan Belajar",
-                        style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+                        style: TextStyle(
+                            fontSize: 18, fontWeight: FontWeight.bold),
                       ),
                       SizedBox(height: 10),
                       Row(
@@ -192,9 +215,12 @@ class ElearningDisplay extends StatelessWidget {
                 scrollDirection: Axis.horizontal,
                 padding: EdgeInsets.only(left: 16),
                 children: [
-                  courseCard("Algoritma & Pemrograman", "Rosa Ariani Sukamto, M.T.", "4.8", "21 Modul"),
-                  courseCard("Machine Learning", "Prof. Dr. Lala Septem Riza, M.T.", "4.7", "18 Modul"),
-                  courseCard("Pengembangan Web", "Herbert, S.Kom., M.T.", "4.9", "24 Modul"),
+                  courseCard("Algoritma & Pemrograman",
+                      "Rosa Ariani Sukamto, M.T.", "4.8", "21 Modul"),
+                  courseCard("Machine Learning",
+                      "Prof. Dr. Lala Septem Riza, M.T.", "4.7", "18 Modul"),
+                  courseCard("Pengembangan Web", "Herbert, S.Kom., M.T.", "4.9",
+                      "24 Modul"),
                 ],
               ),
             ),
@@ -238,7 +264,7 @@ class ElearningDisplay extends StatelessWidget {
               ),
             ),
             SizedBox(height: 20),
-            
+
             // Menu Fitur Tambahan
             Padding(
               padding: EdgeInsets.symmetric(horizontal: 16),
@@ -253,10 +279,13 @@ class ElearningDisplay extends StatelessWidget {
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  featureButton(Icons.calendar_today, "Jadwal\nKuliah", primaryColor),
-                  featureButton(Icons.assignment, "Tugas &\nUjian", primaryColor),
+                  featureButton(
+                      Icons.calendar_today, "Jadwal\nKuliah", primaryColor),
+                  featureButton(
+                      Icons.assignment, "Tugas &\nUjian", primaryColor),
                   featureButton(Icons.book, "Materi\nKuliah", primaryColor),
-                  featureButton(Icons.assessment, "Laporan\nAkademik", primaryColor),
+                  featureButton(
+                      Icons.assessment, "Laporan\nAkademik", primaryColor),
                 ],
               ),
             ),
@@ -302,7 +331,8 @@ class ElearningDisplay extends StatelessWidget {
   }
 
   // Widget Kursus Card - Perbaikan untuk menghindari overflow
-  Widget courseCard(String title, String instructor, String rating, String modules) {
+  Widget courseCard(
+      String title, String instructor, String rating, String modules) {
     return Container(
       width: 200,
       margin: EdgeInsets.only(right: 16),
@@ -381,7 +411,8 @@ class ElearningDisplay extends StatelessWidget {
   }
 
   // Widget Jadwal Card
-  Widget scheduleCard(String subject, String time, String lecturer, Color bgColor, Color iconColor) {
+  Widget scheduleCard(String subject, String time, String lecturer,
+      Color bgColor, Color iconColor) {
     return Container(
       margin: EdgeInsets.only(bottom: 10),
       padding: EdgeInsets.all(15),
@@ -425,7 +456,8 @@ class ElearningDisplay extends StatelessWidget {
             children: [
               Text(
                 time,
-                style: TextStyle(fontWeight: FontWeight.bold, color: primaryColor),
+                style:
+                    TextStyle(fontWeight: FontWeight.bold, color: primaryColor),
               ),
               SizedBox(height: 3),
               Container(
@@ -445,7 +477,7 @@ class ElearningDisplay extends StatelessWidget {
       ),
     );
   }
-  
+
   // Widget Fitur Button
   Widget featureButton(IconData icon, String title, Color color) {
     return Container(

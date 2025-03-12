@@ -38,7 +38,7 @@ class UpMedsos extends StatelessWidget {
             // Membuat tombol simpan lebih ramping
             padding: EdgeInsets.symmetric(horizontal: 10, vertical: 2),
             alignment: Alignment.center,
-            constraints: BoxConstraints(maxWidth: 70, maxHeight: 28), 
+            constraints: BoxConstraints(maxWidth: 70, maxHeight: 28),
             decoration: BoxDecoration(
               color: Color(0xFFEDE7F6),
               borderRadius: BorderRadius.circular(14),
@@ -53,11 +53,6 @@ class UpMedsos extends StatelessWidget {
             ),
           ),
         ],
-        shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.vertical(
-            bottom: Radius.circular(16),
-          ),
-        ),
       ),
       body: Container(
         decoration: BoxDecoration(
@@ -88,13 +83,16 @@ class UpMedsos extends StatelessWidget {
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
-                  _buildTypeButton("Foto", Icons.image, Color(0xFF4CAF50), true),
-                  _buildTypeButton("Video", Icons.videocam, Color(0xFFE53935), false),
-                  _buildTypeButton("Status", Icons.text_fields, Color(0xFF4A148C), false),
+                  _buildTypeButton(
+                      "Foto", Icons.image, Color(0xFF4CAF50), true),
+                  _buildTypeButton(
+                      "Video", Icons.videocam, Color(0xFFE53935), false),
+                  _buildTypeButton(
+                      "Status", Icons.text_fields, Color(0xFF4A148C), false),
                 ],
               ),
             ),
-            
+
             // Area Konten
             Expanded(
               child: Padding(
@@ -149,9 +147,9 @@ class UpMedsos extends StatelessWidget {
                         ),
                       ],
                     ),
-                    
+
                     SizedBox(height: 16),
-                    
+
                     // Caption
                     Container(
                       padding: EdgeInsets.all(12),
@@ -174,9 +172,9 @@ class UpMedsos extends StatelessWidget {
                         ),
                       ),
                     ),
-                    
+
                     SizedBox(height: 20),
-                    
+
                     // Preview Area
                     Expanded(
                       child: Container(
@@ -234,7 +232,7 @@ class UpMedsos extends StatelessWidget {
                 ),
               ),
             ),
-            
+
             // Footer Tools
             Container(
               padding: EdgeInsets.symmetric(vertical: 12, horizontal: 16),
@@ -264,16 +262,15 @@ class UpMedsos extends StatelessWidget {
       ),
     );
   }
-  
-  Widget _buildTypeButton(String label, IconData icon, Color color, bool isSelected) {
+
+  Widget _buildTypeButton(
+      String label, IconData icon, Color color, bool isSelected) {
     return Container(
       padding: EdgeInsets.symmetric(horizontal: 16, vertical: 8),
       decoration: BoxDecoration(
         color: isSelected ? color.withOpacity(0.1) : Colors.transparent,
         borderRadius: BorderRadius.circular(20),
-        border: isSelected 
-            ? Border.all(color: color, width: 1.5)
-            : null,
+        border: isSelected ? Border.all(color: color, width: 1.5) : null,
       ),
       child: Row(
         children: [
@@ -295,7 +292,7 @@ class UpMedsos extends StatelessWidget {
       ),
     );
   }
-  
+
   Widget _buildToolButton(IconData icon, String label) {
     return Column(
       mainAxisSize: MainAxisSize.min,

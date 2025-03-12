@@ -78,11 +78,6 @@ class MentalHealthScreen extends StatelessWidget {
           ),
         ),
         centerTitle: true,
-        shape: const RoundedRectangleBorder(
-          borderRadius: BorderRadius.vertical(
-            bottom: Radius.circular(16),
-          ),
-        ),
         actions: [
           Icon(Icons.notifications_outlined),
         ],

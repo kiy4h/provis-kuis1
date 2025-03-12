@@ -28,6 +28,7 @@ class MainScreenState extends State<MainScreen> {
     ChatScreen(),
     NotifikasiScreen()
   ];
+  final Color primaryColor = const Color(0xFF4A148C);
 
   void _onNavItemTapped(int index) {
     setState(() {
@@ -45,10 +46,48 @@ class MainScreenState extends State<MainScreen> {
       appBar: const SearchableAppBar(),
       drawer: Drawer(
         child: ListView(
-          children: const [
-            DrawerHeader(child: Text("Menu")),
-            ListTile(title: Text("Profil")),
-            ListTile(title: Text("Pengaturan")),
+          padding: EdgeInsets.zero,
+          children: [
+            UserAccountsDrawerHeader(
+              decoration: BoxDecoration(color: primaryColor),
+              accountName:
+                  Text("Zaning", style: TextStyle(fontWeight: FontWeight.bold)),
+              accountEmail: Text("Level 3 • 1200 XP"),
+              currentAccountPicture: CircleAvatar(
+                backgroundImage: AssetImage('assets/images/student.jpg'),
+              ),
+            ),
+            ListTile(
+              leading: Icon(Icons.home, color: primaryColor),
+              title: Text("Beranda"),
+              onTap: () {},
+            ),
+            ListTile(
+              leading: Icon(Icons.school, color: primaryColor),
+              title: Text("Kelas Saya"),
+              onTap: () {},
+            ),
+            ListTile(
+              leading: Icon(Icons.calendar_today, color: primaryColor),
+              title: Text("Jadwal"),
+              onTap: () {},
+            ),
+            ListTile(
+              leading: Icon(Icons.assessment, color: primaryColor),
+              title: Text("Nilai & Sertifikat"),
+              onTap: () {},
+            ),
+            Divider(),
+            ListTile(
+              leading: Icon(Icons.settings, color: primaryColor),
+              title: Text("Pengaturan"),
+              onTap: () {},
+            ),
+            ListTile(
+              leading: Icon(Icons.help, color: primaryColor),
+              title: Text("Bantuan"),
+              onTap: () {},
+            ),
           ],
         ),
       ),
@@ -156,11 +195,6 @@ class _SearchableAppBarState extends State<SearchableAppBar> {
           ),
         ),
       ],
-      shape: const RoundedRectangleBorder(
-        borderRadius: BorderRadius.vertical(
-          bottom: Radius.circular(16),
-        ),
-      ),
     );
   }
 }

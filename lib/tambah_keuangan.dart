@@ -30,11 +30,6 @@ class TambahPengeluaran extends StatelessWidget {
           ),
         ),
         centerTitle: true,
-        shape: const RoundedRectangleBorder(
-          borderRadius: BorderRadius.vertical(
-            bottom: Radius.circular(16),
-          ),
-        ),
         // Tombol back dihapus
       ),
       body: Container(
@@ -56,7 +51,8 @@ class TambahPengeluaran extends StatelessWidget {
               child: GridView.count(
                 crossAxisCount: 4,
                 childAspectRatio: 0.9,
-                padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 4),
+                padding:
+                    const EdgeInsets.symmetric(horizontal: 12, vertical: 4),
                 mainAxisSpacing: 10,
                 crossAxisSpacing: 6,
                 children: [
@@ -83,18 +79,17 @@ class TambahPengeluaran extends StatelessWidget {
     );
   }
 
-  Widget _buildCategory(IconData icon, String label, {bool isSelected = false}) {
+  Widget _buildCategory(IconData icon, String label,
+      {bool isSelected = false}) {
     return Column(
       mainAxisSize: MainAxisSize.min,
       children: [
         Container(
           decoration: BoxDecoration(
-            color: isSelected
-                ? const Color(0xFFD1C4E9)
-                : Colors.white,
+            color: isSelected ? const Color(0xFFD1C4E9) : Colors.white,
             borderRadius: BorderRadius.circular(12),
-            border: isSelected 
-                ? Border.all(color: const Color(0xFF4A148C), width: 2) 
+            border: isSelected
+                ? Border.all(color: const Color(0xFF4A148C), width: 2)
                 : Border.all(color: const Color(0xFFE1E1E1), width: 1),
             boxShadow: [
               BoxShadow(
@@ -127,7 +122,8 @@ class TambahPengeluaran extends StatelessWidget {
 
   Widget _buildCalculator() {
     return Container(
-      padding: const EdgeInsets.fromLTRB(12, 8, 12, 12), // Padding atas dikurangi
+      padding:
+          const EdgeInsets.fromLTRB(12, 8, 12, 12), // Padding atas dikurangi
       decoration: BoxDecoration(
         color: Colors.white,
         borderRadius: const BorderRadius.only(
@@ -136,7 +132,8 @@ class TambahPengeluaran extends StatelessWidget {
         ),
         boxShadow: [
           BoxShadow(
-            color: Colors.purple.withOpacity(0.05), // Opacity bayangan dikurangi
+            color:
+                Colors.purple.withOpacity(0.05), // Opacity bayangan dikurangi
             blurRadius: 6, // Blur radius dikurangi
             offset: const Offset(0, -2), // Offset dikurangi
           ),
@@ -166,7 +163,8 @@ class TambahPengeluaran extends StatelessWidget {
                   fontWeight: FontWeight.bold,
                   color: Color(0xFF4A148C),
                 ),
-                contentPadding: const EdgeInsets.symmetric(horizontal: 12, vertical: 8), // Padding dikurangi
+                contentPadding: const EdgeInsets.symmetric(
+                    horizontal: 12, vertical: 8), // Padding dikurangi
               ),
               style: const TextStyle(fontSize: 15, fontWeight: FontWeight.bold),
               keyboardType: TextInputType.number,
@@ -175,7 +173,8 @@ class TambahPengeluaran extends StatelessWidget {
           GridView.count(
             crossAxisCount: 4,
             shrinkWrap: true,
-            childAspectRatio: 1.5, // Rasio yang lebih tinggi membuat tombol lebih pipih
+            childAspectRatio:
+                1.5, // Rasio yang lebih tinggi membuat tombol lebih pipih
             crossAxisSpacing: 5, // Spasi dikurangi
             mainAxisSpacing: 5, // Spasi dikurangi
             physics: const NeverScrollableScrollPhysics(),
@@ -204,7 +203,11 @@ class TambahPengeluaran extends StatelessWidget {
   }
 
   Widget _buildCalcButton(String label, {Color bgColor = Colors.white}) {
-    final isOperation = label == "×" || label == "÷" || label == "−" || label == "+" || label == "✓";
+    final isOperation = label == "×" ||
+        label == "÷" ||
+        label == "−" ||
+        label == "+" ||
+        label == "✓";
 
     return Container(
       decoration: BoxDecoration(

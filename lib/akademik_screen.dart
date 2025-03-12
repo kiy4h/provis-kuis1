@@ -31,11 +31,6 @@ class AkademikScreen extends StatelessWidget {
           ),
         ),
         centerTitle: true,
-        shape: const RoundedRectangleBorder(
-          borderRadius: BorderRadius.vertical(
-            bottom: Radius.circular(16),
-          ),
-        ),
       ),
       body: const CourseListView(),
     );
@@ -55,7 +50,7 @@ class CourseListView extends StatelessWidget {
         'dosen': 'Yaya Wihardi, S.Kom., M.Kom.',
         'tahun': '2024/2025 - Genap',
       },
-        {
+      {
         'kode': 'IK300',
         'nama': 'PEMROGRAMAN VISUAL DAN PIRANTI BERGERAK',
         'sks': '3',
@@ -117,7 +112,7 @@ class CourseListView extends StatelessWidget {
                 ],
               ),
             ),
-            
+
             const SizedBox(height: 24),
             const Text(
               'Mata Kuliah Aktif',

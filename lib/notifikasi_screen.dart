@@ -31,11 +31,6 @@ class NotifikasiScreen extends StatelessWidget {
           ),
         ),
         centerTitle: true,
-        shape: const RoundedRectangleBorder(
-          borderRadius: BorderRadius.vertical(
-            bottom: Radius.circular(16),
-          ),
-        ),
       ),
       body: const NotificationListView(),
     );
@@ -61,7 +56,8 @@ class NotificationListView extends StatelessWidget {
       {
         'type': 'Pengumuman',
         'title': 'LIBUR RAMADHAN',
-        'message': 'Perkuliahan ditiadakan pada tanggal 21 Maret - 6 April  2025',
+        'message':
+            'Perkuliahan ditiadakan pada tanggal 21 Maret - 6 April  2025',
         'time': '10:15',
         'date': 'Kemarin',
         'icon': Icons.campaign,
@@ -97,7 +93,8 @@ class NotificationListView extends StatelessWidget {
       {
         'type': 'Pengumuman',
         'title': 'PEMELIHARAAN SISTEM',
-        'message': 'Sistem akademik akan mengalami pemeliharaan pada akhir pekan',
+        'message':
+            'Sistem akademik akan mengalami pemeliharaan pada akhir pekan',
         'time': '09:00',
         'date': '17 Mar 2025',
         'icon': Icons.campaign,
@@ -154,9 +151,9 @@ class NotificationListView extends StatelessWidget {
                 ],
               ),
             ),
-            
+
             const SizedBox(height: 24),
-            
+
             // Filter chips
             SizedBox(
               height: 40,
@@ -172,9 +169,9 @@ class NotificationListView extends StatelessWidget {
                 ],
               ),
             ),
-            
+
             const SizedBox(height: 16),
-            
+
             const Text(
               'Notifikasi Terbaru',
               style: TextStyle(
@@ -236,7 +233,7 @@ class NotificationListView extends StatelessWidget {
       ],
     );
   }
-  
+
   Widget _buildFilterChip(String label, bool isSelected) {
     return Container(
       margin: const EdgeInsets.only(right: 8),
@@ -319,7 +316,7 @@ class NotificationCard extends StatelessWidget {
                     ),
                   ),
                   const SizedBox(width: 12),
-                  
+
                   // Content
                   Expanded(
                     child: Column(
@@ -345,7 +342,7 @@ class NotificationCard extends StatelessWidget {
                           ),
                         ),
                         const SizedBox(height: 8),
-                        
+
                         // Title
                         Text(
                           notification['title'],
@@ -356,7 +353,7 @@ class NotificationCard extends StatelessWidget {
                           ),
                         ),
                         const SizedBox(height: 4),
-                        
+
                         // Message
                         Text(
                           notification['message'],
@@ -366,7 +363,7 @@ class NotificationCard extends StatelessWidget {
                           ),
                         ),
                         const SizedBox(height: 8),
-                        
+
                         // Time and date
                         Row(
                           children: [
